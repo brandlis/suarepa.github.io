@@ -364,3 +364,37 @@ i:active {
   -webkit-transform: translateY(-8px);
   transform: translateY(-8px);
 }
+
+@media (max-width: 430px) {
+  .nav_menu {
+    position: static;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(227, 230, 54);
+    border-bottom: none;
+  }
+
+  .nav_menu_logo img {
+    height: 30vh;
+    margin: auto;
+    padding-bottom: 5px;
+  }
+
+  .nav_menu_navegador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5vh;
+  }
+
+  .nav_menu_navegador a {
+    font-size: auto;
+  }
+
+  .carrusel {
+    top: auto;
+    max-height: 60vh
+  }
+}
