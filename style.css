@@ -96,87 +96,38 @@ body::-webkit-scrollbar {
 
 /*------------carrusel---------*/
 
-.carrusel {
-  height: 540px;
+.position {
+  width: 300%;
+  height: 88vh;
   position: relative;
-  width: 100%;
-  display: block;
   top: 100px;
+  overflow: hidden;
+  display: flex;
 }
 
-.carrusel_item {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 25px 50px;
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
-}
-
-.flecha {
-  border: solid rgb(255, 255, 255);
-  border-width: 0 8px 8px 0;
-  display: inline-block;
-  padding: 19px;
-  border-radius: 10px;
-}
-
-.flecha:hover {
-  border: solid rgb(227, 230, 54);
-  border-width: 0 6px 6px 0;
-}
-
-.flecha_prev {
-  left: 60px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%) rotate(135deg);
-}
-
-.flecha_next {
-  right: 60px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%) rotate(-45deg);
-}
-
-[id^="item"] {
-  display: none;
-}
-
-.item_1 {
-  z-index: 2;
-  opacity: 1;
-  background: url(img/slide1.jpg);
+.carrusel {
+  background-image: url(img/slide1.jpg);
   background-size: 100% 100%;
+  width: 100%;
+  animation: cambio 15s infinite alternate;
 }
 
-.item_2 {
-  background: url(img/slide2.jpg);
-  background-size: 100% 100%;
-}
+@keyframes cambio {
+  20% {
+    background-image: url(img/slide1.jpg);
+    background-size: 100% 100%;
+  }
 
-.item_3 {
-  background: url(img/slide3.jpg);
-  background-size: 100% 100%;
-}
+  60% {
+    background-image: url(img/slide2.jpg);
+    background-size: 100% 100%;
+  }
 
-*:target~.item_1 {
-  opacity: 0;
+  100% {
+    background-image: url(img/slide3.jpg);
+    background-size: 100% 100%;
+  }
 }
-
-#item_1:target~.item_1 {
-  opacity: 1;
-}
-
-#item_2:target~.item_2,
-#item_3:target~.item_3 {
-  z-index: 3;
-  opacity: 1;
-}
-
 
 /*-----------Sub text------------*/
 
@@ -276,7 +227,7 @@ strong {
   font-size: 70px;
 }
 
-/* ---------menu---------- */
+/* ---------hours---------- */
 
 .horario {
   height: 100%;
@@ -303,10 +254,6 @@ strong {
   padding-bottom: 20px;
 }
 
-.horario_sub_date_text {
-  text-align: center;
-}
-
 .horario_sub_date p {
   margin: 0 100px 0 100px;
   font-weight: 400;
@@ -314,6 +261,13 @@ strong {
 }
 
 /*-----------redes-----------*/
+
+.mapa {
+  width: 100%;
+  height: 540px;
+  border-style: 1px solid black;
+  margin-top: 90px;
+}
 
 .sigue {
   display: flex;
@@ -365,11 +319,11 @@ i:active {
   transform: translateY(-8px);
 }
 
-@media (max-width: 430px) {
+@media (max-width: 450px) {
   .nav_menu {
     position: static;
     display: flex;
-    height: auto;
+    height: 100vh;
     flex-direction: column;
     align-items: center;
     background-color: rgb(227, 230, 54);
@@ -377,24 +331,167 @@ i:active {
   }
 
   .nav_menu_logo img {
-    height: 30vh;
+    animation: 0.5s;
+    height: 50vh;
     margin: auto;
-    padding-bottom: 5px;
+    transition: 1s;
+  }
+
+  .nav_menu_logo img:hover {
+    transform: scale(1.1);
+    transition: 1s;
   }
 
   .nav_menu_navegador {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 5vh;
   }
 
   .nav_menu_navegador a {
-    font-size: auto;
+    padding-top: 3vh;
+    font-size: 4vh;
   }
 
-  .carrusel {
-    top: auto;
-    max-height: 60vh
+  .position {
+    border-top: 3px solid white;
+    position: inherit;
+    height: 50vh;
+  }
+
+  .content_sub {
+    margin: auto;
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .content_sub_title {
+    font-size: 20px;
+  }
+
+  .content_sub_imagenes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding-left: 30px;
+  }
+
+  .content_sub_imagenes img {
+    height: 11vh;
+    padding: 5px;
+  }
+
+  .content_sub_text {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content_sub_text h2 {
+    font-size: 22px;
+    margin: auto;
+    padding: 24px;
+  }
+
+  .sobre_nosotros {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+
+  .sobre_nosotros_video {
+    height: 300px;
+    width: 100%;
+  }
+
+  .sobre_nosotros_video video {
+    height: 100%;
+  }
+
+  .sobre_nosotros_overlay {
+    height: 45vh;
+  }
+
+  .nosotros {
+    margin: 0 10px;
+    height: 300px;
+  }
+
+  .nosotros p {
+    text-align: center;
+    font-size: 12px;
+    padding: 10px 10px;
+  }
+
+  strong {
+    font-size: 20px;
+  }
+
+  .fin {
+    font-size: 40px;
+  }
+
+  .horario {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .horario_sub {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+  }
+
+  .horario_sub_tittle {
+    font-size: 30px;
+  }
+
+  .horario_sub_date {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  .horario_sub_date p {
+    font-size: 20px;
+    margin: 0;
+    padding: 5px 20px;
+  }
+
+  footer {
+    margin: 0;
+    position: relative;
+    top: 120px;
+  }
+
+  #ubicacion {
+    padding-bottom: 30px;
+  }
+
+  .mapa {
+    margin-top: 0;
+    height: 40vh;
+    border-style: none;
+  }
+
+  .sigue {
+    font-size: 40px;
+    padding: 20px;
+  }
+
+  .redes a i {
+    font-size: 50px;
   }
 }
